@@ -1,0 +1,223 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Template for designing a screen layout
+ * (de) Gestaltungsvorlage für die Erstellung eines Screenlayouts
+ *
+ * @copyright       Copyright 2005-2011, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3.1
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ */
+@media screen , projection { /** 
+   * (en) Forcing vertical scrollbars in IE8, Firefox, Webkit & Opera 
+   * (de) Erzwingen vertikaler Scrollbalken in IE8, Firefox, Webkit & Opera 
+   *
+   * @workaround
+   * @affected IE8, FF, Webkit, Opera
+   * @css-for all
+   * @valid CSS3
+   */
+	body {
+		overflow-y: scroll;
+	}
+	body {
+		
+	}
+	.page_margins {
+		
+	}
+	.page {
+		
+	}
+	#header {
+		background: #ffffff;
+		height: 70px;
+	}
+	#header .judul {
+		font-size: 17px;
+		padding-left: 10px;
+		line-height: 50px;
+		color: #000000;
+		font-family: "Trebuchet MS", "arial";
+	}
+	#header #logoindex {
+		padding: 10px 0px 10px 10px;
+		border-bottom: 1px gray solid;
+	}
+	#topnav {
+		height: 25px;
+		line-height: 25px; /*background: whiteSmoke;*/
+		background: gray;
+		border-bottom: 1px #E5E5E5 solid;
+		text-align: right;
+		padding: 0px 10px 0px 10px;
+		color: white;
+	}
+	#topnav a {
+		color: white;
+		text-decoration: none;
+	}
+	#topnav a:visisted {
+		color: white;
+		text-decoration: none;
+	}
+	#topnav a:hover {
+		color: white;
+		text-decoration: underline;
+	}
+	#main {
+		margin: 15px auto;
+	}
+	#itemsthumb {
+		float: left;
+		display: inline;
+		padding: 0px 0px 0px 0px;
+		width: 100%;
+	}
+	#itemsthumb .item {
+		float: left;
+		width: 150px;
+		height: 190px;
+		padding: 5px;
+		border: 1px #E5E5E5 solid;
+		text-align: center;
+		margin: 0px 15px 15px 0px;
+	}
+	#footer {
+		margin: -15px 0px 0px 271px;
+		padding: 10px;
+		height: 50px;
+		border-top: 1px gray solid;
+		text-align: right;
+	}
+	.titlepanel {
+		line-height: 30px;
+		margin: 10px auto;
+		background: whiteSmoke;
+		border-bottom: 1px #E5E5E5 solid;
+		border-top: 1px #E5E5E5 solid;
+		padding: 0px 10px 0px 10px;
+	}
+	#formaddnewproduct {
+		width: 600px;
+	}
+	
+	 #nav * {
+    border: 0px none !important;
+  }
+  .hlist {
+    background: #e8e8e8;
+  }
+  .hlist ul {
+    margin-left: 20px;
+  }
+  .hlist ul li {
+    line-height: 1.2em;
+  }
+  .hlist ul li a,.hlist ul li strong {
+    color: #666;
+    font-weight: normal;
+    padding: 0.5em 0.8em 0.5em 0.8em;
+  }
+  .hlist ul li a:focus,.hlist ul li a:hover,.hlist ul li a:active {
+    background: #182E7A;
+    color: #fff;
+  }
+  .hlist ul li.active {
+    background: #f8f8f8;
+  }
+  .hlist ul li.active strong,.hlist ul li.active a,.hlist ul li.active a:focus,.hlist ul li.active a:hover,.hlist ul li.active a:active
+    {
+    color: #4D87C7;
+    font-weight: bold;
+  }
+  
+	/*------------------------------------------------------------------------------------------------------*/
+
+	/**
+  * Formatting of the Content Area | Formatierung der Inhaltsbereichs
+  *
+  * @section layout-main
+  */
+
+	/*#col1 {  }
+  #col1_content {  }
+
+  #col2 {  }
+  #col2_content {  }
+
+  #col3 {  }
+  #col3_content {  }*/
+
+	/**
+   * (en) Repositioning content container
+   * (de) Neupositionierung der Content Container
+   *
+   * |-------------------------------|
+   * | #header                       |
+   * |-------------------------------|
+   * | #col1   | #col3               |
+   * | 25%     | flexible            |
+   * |-------------------------------|
+   * | #footer                       |
+   * |-------------------------------|
+   */
+
+	/* Fixed width for left column | Fixe Breite für Linke Spalte */
+	#col1 {
+		
+	}
+	#col1_content {
+		width: 250px;
+		padding: 5px;
+		position: absolute;
+	}
+	#col2,#col2_content {
+		display: none;
+	}
+	#col3 {
+		border-left: 1px solid gray;
+		margin-left: 271px;
+		margin-right: 0;
+	}
+	#col3_content {
+		padding: 5px 10px 10px 10px;
+		min-height: 400px;
+	}
+
+	/*#col1 { width: 25%; }
+  #col2, #col2_content { display:none; }
+  #col3 { margin-left: 25%; margin-right: 0; }
+  #col3_content { padding: 10px 20px 10px 10px; }*/
+
+	/*------------------------------------------------------------------------------------------------------*/
+
+	/**
+  * Design of Additional Layout Elements | Gestaltung weiterer Layoutelemente
+  *
+  * @section layout-misc
+  */
+
+	/**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Skiplinks 
+  *
+  * (en) Visual styling for skiplink navigation
+  * (de) Visuelle Gestaltung der Skiplink-Navigation
+  *
+  * @section content-skiplinks
+  */
+	#skiplinks a.skip:focus,#skiplinks a.skip:active {
+		color: #fff;
+		background: #333;
+		border-bottom: 1px #000 solid;
+		padding: 10px 0;
+		text-decoration: none;
+	}
+}
