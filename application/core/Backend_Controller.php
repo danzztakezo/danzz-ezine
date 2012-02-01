@@ -7,7 +7,7 @@ class Backend_Controller extends MX_Controller
   function __construct()
   {
      parent::__construct();
-     $this->load->model('user','u');
+     $this->load->model('backend/user','u');
      $logged=$this->session->userdata('user_login');
      $segment=$this->uri->segment(2);
      echo $this->cek_email($logged);
