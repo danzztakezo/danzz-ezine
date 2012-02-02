@@ -2,7 +2,7 @@
 
 class pages_backend extends Backend_Controller {
 
-  function __construct(){
+  public function __construct(){
     $this->load->model('page_backend_model','p');
   }
 

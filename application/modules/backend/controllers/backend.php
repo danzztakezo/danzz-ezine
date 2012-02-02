@@ -7,7 +7,7 @@ class Backend extends Backend_Controller {
     }
 
   public function index(){
-    
+    $this->dashboard();
   }
   
   public function login(){

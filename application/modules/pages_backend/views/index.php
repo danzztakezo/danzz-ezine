@@ -1,6 +1,7 @@
 <?=$this->load->view('backend/layouts/top');?>
 <script type="text/javascript">
-$(document).ready(function(){              
+$(document).ready(function(){
+  $("#add_form").hide();
   $(function() {
     $("#contentLeft ul").sortable({ opacity: 0.6, cursor: 'move', update: function() {
       var order = $(this).sortable("serialize") + '&action=updateRecordsListings'; 
@@ -8,6 +9,15 @@ $(document).ready(function(){
         $("#contentRight").html(theResponse);
       });                                
     }                 
+    });
+  });
+  $("#btnAdd").toggle(function(){
+    $("#index_content").hide("slow",function(){
+      $("#add_form").show("slow");
+    });
+  },function(){
+    $("#add_form").hide("slow",function(){
+      $("#index_content").show("slow");
     });
   });
 
@@ -50,10 +60,10 @@ ul {
   background-color:#CCCCCC;
   border: #CCCCCC solid 1px;
   color:#fff;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
-
-
-  
 
 #contentRight {
   float: right;
@@ -61,6 +71,34 @@ ul {
   padding:10px;
   background-color:#336600;
   color:#FFFFFF;
+}
+
+.vlist li{
+  list-style : none;
+}
+
+.form textarea {
+  width:500px;
+  height:250px;
+}
+
+.form input[type=button]{
+  margin:10px 0px 10px 110px;
+
+}
+
+.form span{
+  float: left;
+  display: block;
+  width :100%;
+  margin: 5px 0px;
+}
+
+.form label{
+  width:100px;
+  text-align  :right;
+  margin-right: 10px;
+  float: left;
 }
 
 </style>
@@ -74,19 +112,22 @@ ul {
       
   <div id="col3">
     <div id="col3_content" class="clearfix">
-      <h2> <?php echo $title_page;?> </h2>
-      <div id="contentLeft">
-      <ul>
-        <?php 
-          foreach($rows as $d){
-             echo "<li id='recordsArray_".$d->id."'> $d->entitle ";
-             echo "<div>$d->encontent</div>";
-             echo "</li>";
-          }
-        ?>
-        </ul>
-      </div>
+      <div id="index_content">
+        <h2> <?php echo $title_page;?> </h2>
+        <div id="contentLeft">
+        <ul>
+          <?php 
+            foreach($rows as $d){
+               echo "<li id='recordsArray_".$d->id."'> $d->name ";
+               echo "<div>$d->encontent</div>";
+               echo "</li>";
+            }
+          ?>
+          </ul>
+        </div>
     </div>
+    <?php $this->load->view("add");?>
+  </div>
   <!-- IE column clearing -->
   <div id="ie_clearing">&nbsp;</div>
   </div>
