@@ -1,5 +1,15 @@
+<?php
+$b = $this->config->site_url();
+$url_add_guestbooks = $b . "guestbooks/add"; 
+?>
+
 <div class='panel'>
-	<h3>Buku Tamu</h3><hr/>
+	<h2>Buku Tamu</h2><hr/>
+		
+	<div style="margin: 10px 0px 10px 10px">
+		<?php echo $pagination ?>&nbsp;&nbsp;[ <a href="<?php echo $url_add_guestbooks ?>">Isi Buku Tamu</a> ]
+	</div>
+	
   <ul style="list-style: none; margin: 0px;">
 	<?php
 	  if(isset($messages)){
@@ -17,6 +27,6 @@
 	</ul>
 	
 	<div style="margin-left: 10px">
-		<a href="#">Isi Buku Tamu</a>
+		<?php echo $pagination ?>&nbsp;&nbsp;[ <a href="<?php echo $url_add_guestbooks ?>">Isi Buku Tamu</a> ]
 	</div>
 </div>

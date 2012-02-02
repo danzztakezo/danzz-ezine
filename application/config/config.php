@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/PEKERJAAN/AGUS/ezine/';
+$config['base_url']	= 'http://localhost/rupbasan';
 
 /*
 |--------------------------------------------------------------------------

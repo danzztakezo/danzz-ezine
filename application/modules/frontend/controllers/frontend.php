@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Frontend extends MX_Controller {
+class Frontend extends CI_Controller {
 
   public function __construct(){
     parent::__construct();
@@ -38,6 +38,24 @@ class Frontend extends MX_Controller {
     
     # LOAD DEFAULT VIEW
     $this->load->view('frontend/default', $data);
+  }
+  
+  public function display_noleftright($content = array(), $header = array(), $footer = array()){
+    
+    # PREPARE HEADER
+    $data['_header'] = $this->get_default_header();
+    if(count($header) > 0) $data['_header'] = $header;
+    
+    # PREPARE FOOTER
+    $data['_footer'] = $this->get_default_footer();
+    if(count($footer) > 0) $data['_footer'] = $footer;
+    
+    # PREPARE CONTENT
+    $data['_content'] = $this->get_default_content();
+    if(count($content) > 0) $data['_content'] = $content;
+    
+    # LOAD DEFAULT VIEW
+    $this->load->view('frontend/noleftright', $data);
   }
   
   public function get_default_left(){
@@ -93,7 +111,7 @@ class Frontend extends MX_Controller {
       		"data" => array("articles" => $articles)
       ),
       array(
-      		"view" => "frontend/content_agendas_articles",
+      		"view" => "frontend/contents/content_agendas_articles",
       		"data" => array("agendas" => $agendas)
       )
     );

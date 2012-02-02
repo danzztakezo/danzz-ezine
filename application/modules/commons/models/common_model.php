@@ -25,5 +25,30 @@ class Common_model extends CI_Model{
   public function find_entity_by_name($name = 0){
     return $this->db->get_where($this->table_name, array("name" => $id))->row();
   }
+  
+  public function save_or_update($data = array()){
+    if(isset($data["id"])){
+      $this->db->where("id", $data["id"]);
+      $this->db->update($this->table_name, $data);
+    }
+    else{
+      $this->db->insert($this->table_name, $data);
+    }
+  }
+  
+  public function save($data = array()){
+    $this->db->insert($this->table_name, $data);
+  }
+  
+  public function update($data = array()){
+    $this->db->where("id", $data["id"]);
+    $this->db->update($this->table_name, $data);
+  }
+  
+  public function count($where = array()){
+    $this->db->where($where);
+    $this->db->from($this->table_name);
+    return $this->db->count_all_results();
+  }
 }
 ?>
