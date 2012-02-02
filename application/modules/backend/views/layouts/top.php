@@ -11,9 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>EZine Backend</title>
-
 <link href="<?php echo $bcs ?>ezine_backend.css" rel="stylesheet" type="text/css"/>
-
 <!-- MENU HORIZONTAL -->
 <link href="<?php echo $bcs ?>ezine_horizontal_menu.css" rel="stylesheet" type="text/css" />
 
@@ -21,8 +19,10 @@
 <link href="css/patches/patch_3col_standard.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 
-<script language="javascript" src="<?php echo $bjs . "jquery.js" ?>"></script>
-<script language="javascript" src="<?php echo $bjs . "jqueryui/jquery-ui-1.8.13.custom.min.js" ?>"></script>
+<script language="javascript" src="<?php echo $bjs . "jquery.js";?>"></script>
+<script language="javascript" src="<?php echo $bjs . "jqueryui/jquery-ui-1.8.13.custom.min.js";?>"></script>
+<script language="javascript" src="<?php echo $bjs . "jform/jquery.form.js";?>"></script>
+<script language="javascript" src="<?php echo $bjs . "jqueryvalidate/jquery.validate.min.js";?>"></script>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {

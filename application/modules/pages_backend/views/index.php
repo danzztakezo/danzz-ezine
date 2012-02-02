@@ -21,7 +21,49 @@ $(document).ready(function(){
     });
   });
 
+  var options = { 
+        // target:        '#ul_list',   // target element(s) to be updated with server response 
+        beforeSubmit:  validate,  // pre-submit callback 
+        success:       showResponse,  // post-submit callback 
+        clearForm: true        // clear all form fields after successful submit 
+    }; 
+
+  $("#addForm").validate({
+     submitHandler: function(form) {
+       $("#addForm").submit(function() { 
+          $(this).ajaxSubmit(options); 
+          return false;  
+        });
+        return false; 
+      }
+    });
+  
+  $( "#ul_list" ).selectable();
+  $("#btnDel").click(function(){
+    var id=$("#ul_list").find(".ui-selected").attr("id");
+    if(id!=""){
+      var nextid=id.split("_");
+
+      $.ajax({
+        url: "pages_backend/del",
+        data:"id="+nextid[1],
+        success: function(data){
+          $("#"+id).hide("slow");
+        }
+      });
+    }
+
+  });   
 }); 
+function validate(formData, jqForm, options) { 
+  $("#btnsimpan").hide("slow",function(){$("#saving_proses").html("Saving ......"); });
+  return true;
+} 
+ 
+function showResponse(responseText, statusText, xhr, $form){ 
+  $("#ul_list").append(responseText); 
+  $("#btnsimpan").show("slow",function(){$("#saving_proses").html("Data berhasil Disimpan"); });
+} 
 </script>
 
 <style>
@@ -100,6 +142,13 @@ ul {
   margin-right: 10px;
   float: left;
 }
+.error{
+  float:left;
+  color:red;
+}
+
+#ul_list .ui-selecting { background: #4D87C7; }
+#ul_list .ui-selected { background: #182E7A; color: white; }
 
 </style>
 <div id="main">
@@ -115,11 +164,11 @@ ul {
       <div id="index_content">
         <h2> <?php echo $title_page;?> </h2>
         <div id="contentLeft">
-        <ul>
+        <ul id="ul_list">
           <?php 
             foreach($rows as $d){
                echo "<li id='recordsArray_".$d->id."'> $d->name ";
-               echo "<div>$d->encontent</div>";
+               echo "<div>$d->incontent</div>";
                echo "</li>";
             }
           ?>
