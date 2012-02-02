@@ -2,7 +2,7 @@
 
 // require_once ('application/modules/commons/models/common_model.php');
 
-class Page_Backend_model extends Common_model{
+class page_backend_model extends Common_Model{
   function __construct(){
     parent::__construct("pages");
   }

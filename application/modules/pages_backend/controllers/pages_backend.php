@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pages_Backend extends Backend_Controller {
+class pages_backend extends Backend_Controller {
 
   function __construct(){
     $this->load->model('page_backend_model','p');
