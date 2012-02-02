@@ -18,72 +18,66 @@ class Agendas extends Frontend {
    */
   
   /**
-  * Menampilkan buku tamu pada satu halaman penuh
+  * Menampilkan agenda pada satu halaman penuh
   * data di order berdasarkan id DESC yang akan menampilkan
-  * buku tamu yang diisi paling terakhir
+  * agenda yang diisi paling terakhir
   * 
   * @author AgusZulvani
   */
   public function browse(){
     # load model untuk mengambil data guest books
-    $this->load->model("guestbooks/guestbook_model");
+    $this->load->model("agendas/agenda_model");
   
     # load pagination
     $limit = 10;
     $offset = $this->uri->segment(3, 0);
     
     $this->load->library("pagination");
-    $config['base_url'] = $this->config->base_url() . "guestbooks/browse";
-    $config['total_rows'] = $this->guestbook_model->count(array("approved" => 1));
+    $config['base_url'] = $this->config->base_url() . "agendas/browse";
+    $config['total_rows'] = $this->agenda_model->count();
     $config['per_page'] = $limit;
     $this->pagination->initialize($config);
     $pagination = $this->pagination->create_links();
     
     # ambil data guestbook dari database
-    $guestbooks = $this->guestbook_model->find(array("approved" => 1), $offset, $limit, "id desc");
+    $agendas = $this->agenda_model->find(array(), $offset, $limit, "id desc");
     
     $content = array(
       array(
-          		"view" => "guestbooks/f/browse",
-            	"data" => array("messages" => $guestbooks, "pagination" => $pagination)
+          		"view" => "agendas/f/browse",
+            	"data" => array("messages" => $agendas, "pagination" => $pagination)
         )
     );
   
     $this->display($content);
   }
   
-  /**
-  * Menampilkan form untuk mengisi buku tamu
-  * 
-  * @author AgusZulvani
-  */
-  public function add(){
-    $content = array(
-      array(
-          		"view" => "guestbooks/f/add",
-            	"data" => array()
-        )
-    );
-  
-    $this->display($content);
-  }
-  
-  public function save($data = array()){
-    $data["name"] = $this->input->post("tnama");
-    $data["email"] = $this->input->post("temail");
-    $data["url"] = $this->input->post("turl");
-    $data["phone"] = $this->input->post("tphone");
-    $data["incontent"] = $this->input->post("tpesan");
-    $data["entrytime"] = date("Y-m-d");
+  public function detail($id = 0){
+    if($id != 0)
+      $id = $this->uri->segment(3, 0);
     
-    $this->load->model("guestbook_model");
-    $this->guestbook_model->save($data);
+    # load model untuk mengambil data guest books
+    $this->load->model("agendas/agenda_model");    
+    $agenda = $this->agenda_model->find_entity_by_id($id);
     
-    $data = array(
-    	"message_title" => "Terimakasih telah mengisi buku tamu kami!", 
-    	"message" => "Pesan Anda akan diverifikasi terlebih dahulu oleh Administrator kami. <br/><br/>Terimakasih"
-    	);
-    $this->show_common_message($data);
+    if(count($agenda) > 0){
+      $content = array(
+          array(
+          		"view" => "agendas/f/detail",
+            	"data" => array("agenda" => $agenda)
+          )
+      );
+      
+      $this->display($content);
+    }
+    else{
+      $data = array(
+      			"message_title" => "Maaf, Agenda tidak ditemukan!",
+          	"message" => "Maaf Agenda yang ingin Anda baca tidak ditemukan di database kami, 
+          								mungkin agenda ini sudah terhapus dari database kami. <br/><br/>Terimakasih"
+          	);
+      $this->show_common_message($data);
+    }
   }
   
   private function show_common_message($data = array()){

@@ -14,7 +14,7 @@
 				</ul>
 			</li>
 			<li><a href="<?php echo $b . "guestbooks/browse" ?>">Buku Tamu</a></li>
-			<li><a href="<?php echo $b . "rupbasan/agenda" ?>">Agenda</a></li>
+			<li><a href="<?php echo $b . "agendas/browse" ?>">Agenda</a></li>
 			<li><a href="<?php echo $b . "rupbasan/berita" ?>">Berita</a></li>
 			<li><a href="<?php echo $b . "rupbasan/gallery" ?>">Gallery</a></li>
 			<li><a href="<?php echo $b . "rupbasan/artikel" ?>">Artikel</a></li>

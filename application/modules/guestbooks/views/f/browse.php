@@ -7,7 +7,7 @@ $url_add_guestbooks = $b . "guestbooks/add";
 	<h2>Buku Tamu</h2><hr/>
 		
 	<div style="margin: 10px 0px 10px 10px">
-		<?php echo $pagination ?>&nbsp;&nbsp;[ <a href="<?php echo $url_add_guestbooks ?>">Isi Buku Tamu</a> ]
+		<?php echo $pagination; if($pagination != "") {echo "&nbsp;&nbsp;";} ?>[ <a href="<?php echo $url_add_guestbooks ?>">Isi Buku Tamu</a> ]
 	</div>
 	
   <ul style="list-style: none; margin: 0px;">
@@ -27,6 +27,6 @@ $url_add_guestbooks = $b . "guestbooks/add";
 	</ul>
 	
 	<div style="margin-left: 10px">
-		<?php echo $pagination ?>&nbsp;&nbsp;[ <a href="<?php echo $url_add_guestbooks ?>">Isi Buku Tamu</a> ]
+		<?php echo $pagination; if($pagination != "") {echo "&nbsp;&nbsp;";} ?>[ <a href="<?php echo $url_add_guestbooks ?>">Isi Buku Tamu</a> ]
 	</div>
 </div>
