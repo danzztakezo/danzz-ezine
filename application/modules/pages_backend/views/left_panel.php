@@ -3,7 +3,7 @@
   <h4>Profile</h4>
   <hr/>
   <ul class='vlist'>
-  	<li><a href="#" id="btnAdd"> Tambah </a></li>
+  	<li><a href="pages_backend/add" id="btnAdd"> Tambah </a></li>
   	<li><a href="#" id="btnEdit"> Edit </a></li>
   	<li><a href="#" id="btnDel"> Delete </a></li>
   </ul>

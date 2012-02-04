@@ -44,5 +44,15 @@ class Common_Model extends CI_Model{
       return false;
     }
   }
+
+  public function update_attribute($id,$data){
+    $this->db->where($id);
+    $result=$this->db->update($this->table_name,$data);
+    if($result){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 ?>

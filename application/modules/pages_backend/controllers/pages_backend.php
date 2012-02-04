@@ -18,14 +18,37 @@ class pages_backend extends Backend_Controller {
   }
 
   public function add(){
-    $request=$this->input->post();
-    $save=$this->p->save($request);
-     if($save){
-       $rows=$this->p->find($request,"id desc");
-       echo "<li id='recordsArray_".$rows[0]->id."'> ".$rows[0]->name."";
-       echo "<div>".$rows[0]->incontent."</div>";
-       echo "</li>";
-     }
+    $request = $this->input->post();
+    if(empty($request)){
+      $this->load->view("add");
+    }else{
+      $save=$this->p->save($request);
+      if($save){
+        echo 0;
+      }else{
+        echo 1;
+      }
+    }
+  }
+
+  public function edit($id=null){
+    $request = $this->input->post();
+   
+    
+    if(empty($request)){
+      $rows['row']=$this->p->find_entity_by_id($id);
+      $rows['id']=$id;
+      $this->load->view("edit",$rows);
+    }else{
+      $id=array('id'=> $id);
+      $response=$this->p->update_attribute($id,$request);
+      if($response){
+        echo 0;
+      }else{
+        echo 1;
+      }
+
+    }
   }
 
   public function del(){
