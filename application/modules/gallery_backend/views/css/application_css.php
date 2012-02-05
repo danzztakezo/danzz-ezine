@@ -23,6 +23,10 @@
   float: left;
 }
 
+.table textarea{
+  width:200px;
+  height:150px;
+}
 .error{
   float:left;
   color:red;
@@ -63,5 +67,13 @@
 #gallery_list li .deskripsi_album{
   display :block;
   height:10px;  
+}
+
+#display_picture{
+    border: 1px solid black;
+    float: left;
+    height: 52px;
+    width: 60px;
+    margin:0px 10px 10px 0px;
 }
 </style>

@@ -14,7 +14,7 @@
 <link href="<?php echo $bcs ?>ezine_backend.css" rel="stylesheet" type="text/css"/>
 <!-- MENU HORIZONTAL -->
 <link href="<?php echo $bcs ?>ezine_horizontal_menu.css" rel="stylesheet" type="text/css" />
-
+<link href="<?php echo base_url();?>js/uploadify-v2.1.4/uploadify.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 7]>
 <link href="css/patches/patch_3col_standard.css" rel="stylesheet" type="text/css" />
 <![endif]-->
@@ -25,6 +25,10 @@
 <script language="javascript" src="<?php echo $bjs."jqueryvalidate/jquery.validate.min.js";?>"></script>
 <script type="text/javascript" src="<?php echo $bjs."tinymce/jscripts/tiny_mce/jquery.tinymce.js";?>"></script>
 <script type="text/javascript" src="<?php echo $bjs."datatables/jquery.dataTables.js";?>"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/uploadify-v2.1.4/swfobject.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/uploadify-v2.1.4/jquery.uploadify.v2.1.4.js"></script>
+
+
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
   });
