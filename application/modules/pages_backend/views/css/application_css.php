@@ -56,7 +56,7 @@ ul {
   height:250px;
 }
 
-.form input[type=button]{
+.form input[type=submit]{
   margin:10px 0px 10px 110px;
 
 }
@@ -74,6 +74,7 @@ ul {
   margin-right: 10px;
   float: left;
 }
+
 .error{
   float:left;
   color:red;

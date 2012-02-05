@@ -1,9 +1,6 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-
-  
-
   $(function() {
     $("#ul_list").sortable({ opacity: 0.6, cursor: 'move', update: function() {
       var order = $(this).sortable("serialize") + '&action=updateRecordsListings'; 
@@ -14,23 +11,13 @@ $(document).ready(function(){
     });
   });
 
-  // $("#btnAdd").toggle(function(){
-  //   $("#index_content").hide("slow",function(){
-  //     $("#add_form").show("slow");
-  //   });
-  // },function(){
-  //   $("#add_form").hide("slow",function(){
-  //     $("#index_content").show("slow");
-  //   });
-  // });
-
   var options = { 
-        // target:        '#ul_list',   // target element(s) to be updated with server response 
-        beforeSubmit:  validate,  // pre-submit callback 
-        success:       showResponse,  // post-submit callback 
-        clearForm: true        // clear all form fields after successful submit 
+        beforeSubmit:  validate,  
+        success:       showResponse,
+        clearForm: true        
     }; 
-    var optionsEdit = { 
+
+  var optionsEdit = { 
         beforeSubmit:  validate,  
         success:       showResponse
     }; 

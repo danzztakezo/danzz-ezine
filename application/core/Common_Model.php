@@ -12,12 +12,36 @@ class Common_Model extends CI_Model{
     if($order_by != "")
       $this->db->order_by($order_by);
     
-    if($limit == -1)
+    if(!empty($where)){
+      $this->db->where($where);
+    }
+
+    if($limit == -1){
       return $this->db->get_where($this->table_name, $where)->result();
-    else
+    }else{
       return $this->db->get_where($this->table_name, $where, $limit, $offset)->result();
+    }
   }
   
+public function all($where = array(), $offset = 0, $limit = -1, $order_by = ""){
+    if($order_by != "")
+      $this->db->order_by($order_by);
+    
+    if(!empty($where)){
+      $this->db->where($where);
+    }
+
+    if($offset > 0 && $limit >0){
+      $this->db->limit($offset,$limit);
+    }elseif($offset =="" && $limit >0){
+      $this->db->limit($limit);
+    }else{
+      $this->db->limit(-1);
+    }
+    return $this->db->get($this->table_name)->result();
+
+  }
+
   public function find_entity_by_id($id = 0){
     return $this->db->get_where($this->table_name, array("id" => $id))->row();
   }

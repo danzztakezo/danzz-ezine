@@ -1,0 +1,52 @@
+<?=$this->load->view('backend/layouts/top');?>
+<?=$this->load->view('js/application_js');?>
+<?=$this->load->view('css/application_css');?>
+
+<div id="main">
+<?=$this->load->view('left_panel');?>  
+  <!-- begin: #col2 second float column -->
+  <div id="col2">
+    <div id="col2_content" class="clearfix"> </div>
+  </div>
+  <!-- end: #col2 -->
+      
+  <div id="col3">
+    <div id="col3_content" class="clearfix">
+      <div id="index_content">
+        <h2> <?php echo $title_page;?> </h2>
+        <div id="contentLeft">
+          <div id="gallery_list">
+            <ul id="ul_list">
+              <?php
+              foreach($rows as $al){
+                echo "
+                  <li> 
+                    <label class='album_name'>$al->name</label>
+                    <div class='tumb_album_image'>$al->thumb</div>
+                    <div class='deskripsi_album'>".word_limiter($al->indescription,20)."</div>
+                  </li>
+                  ";
+              }?>
+              
+              <li> album 2</li>
+              <li> album 3</li>
+              <li> album 4</li>
+              <li> album 4</li>
+              <li> album 4</li>
+              <li> album 5</li>
+              <li> album 5</li>
+              <li> album 5</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+   
+  </div>
+  <!-- IE column clearing -->
+  <div id="ie_clearing">&nbsp;</div>
+  </div>
+  <!-- end: #col3 -->
+</div>
+<!-- end: #main -->
+
+<?=$this->load->view('backend/layouts/bottom');?>
