@@ -20,23 +20,15 @@
               <?php
               foreach($rows as $al){
                 echo "
-                  <li> 
-                    <label class='album_name'>$al->name</label>
-                    <div class='tumb_album_image'>$al->thumb</div>
-                    <div class='deskripsi_album'>".word_limiter($al->indescription,20)."</div>
+                  <li id='recordsArray_".$al->id."'> 
+                    <label class='album_name'><a href='".base_url()."gallery_backend/detail/".$al->id."'>$al->name</a></label>
+                    <div class='tumb_album_image'><img src='".base_url()."images/albums/Thumbs/".$al->thumb."' width='200px' height='151px'/></div>
+                    <div class='deskripsi_album'>".word_limiter($al->indescription,5)."</div>
                   </li>
                   ";
               }?>
-              
-              <li> album 2</li>
-              <li> album 3</li>
-              <li> album 4</li>
-              <li> album 4</li>
-              <li> album 4</li>
-              <li> album 5</li>
-              <li> album 5</li>
-              <li> album 5</li>
             </ul>
+            <?php echo $this->pagination->create_links();?>
           </div>
         </div>
     </div>

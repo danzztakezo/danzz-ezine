@@ -55,21 +55,15 @@
               <table width="100%" border='1' class="table" >
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Deskripsi</th>
                     <th>Image</th>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Deskripsi</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody id="gallery_upload_tbody">
-                  <tr>
-                    <td>No</td>
-                    <td><input type='text' name='gallery_name[]' id='gallery_name[]'></td>
-                    <td><textarea type='text' name='gallery_name[]' id='gallery_name[]'></textarea></td>
-                    <td>               </td>
-                    <td>Action</td>
-                  </tr>
+                  
                 </tbody>
               </table>
             

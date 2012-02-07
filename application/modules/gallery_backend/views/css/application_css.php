@@ -1,4 +1,7 @@
 <style>
+#ul_list .ui-selecting { background: #4D87C7; }
+#ul_list .ui-selected { background: #182E7A; color: white; }
+
 .form textarea {
   width:500px;
   height:250px;
@@ -44,10 +47,11 @@
 #gallery_list li{
   float : left;
   width : 200px;
-  min-height:200px;
+  min-height:222px;
   border:1px solid black ;
   display: block;
-  margin: 10px 10px 10px 10px;
+  margin: 10px 30px 10px 10px;
+  background-color: #CCCCCC;
 }
 
 #gallery_list li .album_name{
@@ -60,7 +64,7 @@
 
 #gallery_list li .tumb_album_image{
   display :block;
-  height:70px;
+  height:149px;
 
 }
 
