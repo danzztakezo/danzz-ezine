@@ -16,7 +16,7 @@
       <li><a href="<?php echo $b . "rupbasan/agenda"; ?>">Agenda</a></li>
       <li><a href="<?php echo $b . "rupbasan/berita"; ?>">Berita</a></li>
       <li><a href="<?php echo $b . "gallery_backend"; ?>">Gallery</a></li>
-      <li><a href="<?php echo $b . "rupbasan/artikel" ?>">Artikel</a></li>
+      <li><a href="<?php echo $b . "articles_backend" ?>">Artikel</a></li>
       <li><a href="<?php echo $b . "auction_items_backend"; ?>">Barang Lelang</a></li>
       <li><a href="backend/logout">Logout</a></li>
     </ul>
