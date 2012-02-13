@@ -1,5 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Common_model extends CI_Model{
+class Common_model_xx extends CI_Model{
   
   private $table_name;
   

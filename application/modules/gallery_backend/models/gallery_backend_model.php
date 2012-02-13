@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class gallery_backend_model extends Common_Model{
+  
   function __construct(){
     parent::__construct("galleries");
   }
 
   public function save_gallery($data){
-  	 $album=array(
+     $album=array(
         'name' => $data['name'],
         'intitle' => $data['intitle'],
         'picture' => $data['picture'],
@@ -15,22 +16,22 @@ class gallery_backend_model extends Common_Model{
         'author'  => $data['author']
      );
      if($this->db->insert('albums', $album)){
-     	$this->db->order_by("id", "desc"); 
-     	$this->db->limit(1);
-     	$alb=$this->db->get('albums')->row();
-     	$count=count($data['gallery_picture']);
-     	for($i=0;$i<$count;$i++){
-     		$gallery[]=array(
-     			'name'	=> $data['gallery_name'][$i],
-				'intitle' 	=> $data['gallery_title'][$i],
-				'indescription'	=> $data['gallery_deskripsi'][$i],
-				'albumid'	=> $alb->id,
-				'picture'	=> $data['gallery_name'][$i],
-				'thumb'	=> $data['gallery_thumb'][$i],
-				'uploader'	=> $data['author']
-	     	);
-     	}
-     	$this->db->insert_batch('galleries', $gallery); 
+      $this->db->order_by("id", "desc"); 
+      $this->db->limit(1);
+      $alb=$this->db->get('albums')->row();
+      $count=count($data['gallery_picture']);
+      for($i=0;$i<$count;$i++){
+        $gallery[]=array(
+          'name'  => $data['gallery_name'][$i],
+        'intitle'   => $data['gallery_title'][$i],
+        'indescription' => $data['gallery_deskripsi'][$i],
+        'albumid' => $alb->id,
+        'picture' => $data['gallery_name'][$i],
+        'thumb' => $data['gallery_thumb'][$i],
+        'uploader'  => $data['author']
+        );
+      }
+      $this->db->insert_batch('galleries', $gallery); 
      }
   }
 

@@ -11,15 +11,55 @@ class articles_backend extends Backend_Controller {
   }
 
   public function add(){
-    $data['title_page']="Tambah ARTIKEL";
-    $data['authors']=$this->au->find();
-    $data['category']=$this->c->find();
-    $this->load->view('add',$data);
+    $request = $this->input->post();
+    if(empty($request)){
+      $data['title_page']="Tambah Artikel";
+      $data['authors']=$this->au->find();
+      $data['category']=$this->c->find();
+      $data['form_action'] = base_url()."articles_backend/add";
+      $this->load->view('add',$data);
+    }else{
+      $save=$this->a->save_data($request);
+      if($save){
+        echo 0;
+      }else{
+        echo 1;
+      }
+    }
+  }
+
+  public function edit($id){
+    $request = $this->input->post();
+    if(empty($request)){
+      $data['title_page']="Edit Artikel";
+      $data['authors']=$this->au->find();
+      $data['category']=$this->c->find();
+      $data['row']=$this->a->find(array('id'=>$id),0,1,'id asc');
+      $data['form_action'] = base_url()."articles_backend/edit/".$id;
+      $this->load->view('edit',$data);
+    }else{
+      $response=$this->a->update_article($id,$request);
+      if($response){
+        echo 0;
+      }else{
+        echo 1;
+      }
+    }
+  }
+
+  public function del(){
+    $request = $this->input->get();
+    if($this->ac->destroy(array('articleid' => $request['id']))){
+      $this->a->destroy($request);
+      echo "success";  
+    }else{
+      echo "gagal";
+    }
   }
 
   public function index(){
   	$data['title_page']="ARTIKEL";
-  	$data['rows']=$this->a->find(array(),0,-1,'id desc');
+  	$data['rows']=$this->a->articles_all(array(),0,-1,'id desc');
   	$this->load->view("index",$data);
   }
 
@@ -31,5 +71,7 @@ class articles_backend extends Backend_Controller {
    // echo $this->datatables->generate(); 
     $this->load->view('ajax', $data);
   }
+
+
 
 }

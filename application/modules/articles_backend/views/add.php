@@ -14,10 +14,8 @@
       <div id="add_form" class="form">
       <h2> <?php echo $title_page; ?></h2>
         <div id="contentLeft">
-          <form method="post" action="<?=base_url();?>pages_backend/add" id="addForm">
-           <span >
-            <label for="name"> Nama * :</label> <input type="text" name="name" id="name" class="required"/> 
-           </span>
+          <form method="post" action="<?=$form_action;?>" id="addForm">
+           
            <span >
             <label for="intitle"> Title *:</label> <input type="text" name="intitle" id="intitle" class="required"/> 
             </span>
@@ -39,7 +37,7 @@
             </span>
              <span >
               <label for="category"> category *:</label> 
-              <select name="category" id="category" multiple>
+              <select name="category[]" id="category[]" multiple>
                 <option value=''>--pilih category --</option>
                 <?php 
                 if(count($category)>0){
@@ -50,6 +48,9 @@
                  ?>
               </select>
             </span>
+            <span >
+            <label for="name"> </label> <input type="hidden" name="type" id="type" class="required" value="article"/> 
+           </span>
            <input type="submit" id="btnsimpan" value="Simpan"/> 
            <span id="saving_proses"></span>
           </form>

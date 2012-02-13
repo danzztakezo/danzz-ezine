@@ -18,22 +18,24 @@
             <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
               <thead>
                 <tr>
-                  <th width="20%">id</th>
                   <th width="25%">Judul</th>
                   <th width="25%">Deskripsi</th>
-                  <th width="15%">tanggal</th>
                   <th width="15%">author</th>
+                  <th width="15%">kategori</th>
+                  <th width="15%">tanggal</th>
+                  <th width="15%">action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody ="body_tr">
                 <?php 
                 foreach($rows as $row){
-                  echo " <tr>
-                  <td widtd='20%'>$row->id</td>
-                  <td widtd='25%'>$row->intitle</td>
-                  <td widtd='25%'>$row->incontent</td>
-                  <td widtd='15%'>$row->entrytime</td>
-                  <td widtd='15%'>$row->author</td>
+                  echo " <tr id='recordsArray_".$row['id']."'>
+                  <td widtd='15%'>".$row['intitle']."</td>
+                  <td widtd='25%'>".word_limiter(htmlentities(preg_replace("/<img[^>]+\>/i", "(image) ", strip_tags($row['incontent']))),10)."</td>
+                  <td widtd='15%'>".$row['author']."</td>
+                  <td widtd='15%'>".$row['category']."</td>
+                  <td widtd='15%'>".$row['entrytime']."</td>
+                  <td widtd='15%'><a href='".base_url()."/articles_backend/edit/".$row['id']."'>edit</a> | <a  id='".$row['id']."' class='btndel'>del</a></td>
                 </tr>";
               }
                 ?>

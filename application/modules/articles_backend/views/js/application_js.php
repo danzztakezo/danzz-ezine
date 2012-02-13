@@ -2,7 +2,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $(function() {
-    $("#ul_list").sortable({ opacity: 0.6, cursor: 'move', update: function() {
+    $("#body_tr").sortable({ opacity: 0.6, cursor: 'move', update: function() {
       var order = $(this).sortable("serialize") + '&action=updateRecordsListings'; 
       $.post("pages_backend/updated_order", order, function(theResponse){
         $("#contentRight").html(theResponse);
@@ -44,15 +44,15 @@ $(document).ready(function(){
 
   $("#ul_list").selectable();
 
-  $("#btnDel").click(function(){
-    var id=$("#ul_list").find(".ui-selected").attr("id");
+  $(".btndel").click(function(){
+    var id=$(this).attr("id");
     if(id!=""){
       var nextid=id.split("_");
       $.ajax({
-        url: "pages_backend/del",
-        data:"id="+nextid[1],
+        url: "articles_backend/del",
+        data:"id="+id,
         success: function(data){
-          $("#"+id).hide("slow");
+          $("#recordsArray_"+id).hide("slow");
         }
       });
     }
