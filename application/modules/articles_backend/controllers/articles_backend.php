@@ -59,7 +59,7 @@ class articles_backend extends Backend_Controller {
 
   public function index(){
   	$data['title_page']="ARTIKEL";
-  	$data['rows']=$this->a->articles_all(array(),0,-1,'id desc');
+  	$data['rows']=$this->a->articles_all(array('type'=>'article'));
   	$this->load->view("index",$data);
   }
 

@@ -55,10 +55,11 @@ class Article_model extends Common_Model{
     // insert category article
   }
 
-  public function articles_all(){
+  public function articles_all($where){
     $this->db->select(' a.id,a.incontent,a.intitle,b.fullname,a.entrytime');
     $this->db->from('articles a ');
     $this->db->join('authors b', 'b.id = a.author');
+    $this->db->where($where);
     $query = $this->db->get();
 
     foreach ($query->result() as $row)
