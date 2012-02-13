@@ -24,8 +24,12 @@
 | 
 -------------------------------------------------------------------*/
 
-	
-	$config['img_path'] = '/pekerjaan/AGUS/danzz-ezine/images/tinymce/';
+	$ex=explode($_SERVER['REDIRECT_QUERY_STRING'],$_SERVER["REDIRECT_URL"]);
+	$config['img_path'] ="/PEKERJAAN/AGUS/ezine/images/tinymce/";
+	//$config['img_path'] =$ex[0]."images/tinymce/";
+	//$explose=explode('index.php',$_SERVER['SCRIPT_FILENAME']);
+	//$config['img_path'] = 'C:/wamp2/www/PEKERJAAN/AGUS/ezine/images/tinymce';
+
 
 
 /*-------------------------------------------------------------------
@@ -125,6 +129,7 @@
 
 	
 	$config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path'];
+	//$config['upload_path'] = $config['img_path'];
 	
 
 /*-------------------------------------------------------------------

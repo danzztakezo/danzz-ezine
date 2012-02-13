@@ -84,11 +84,7 @@ $(document).ready(function(){
       theme_advanced_statusbar_location : "bottom"
   });
   
-  $('#example').dataTable( {
-    
-    "bServerSide": true,
-    "sAjaxSource": "<?php echo base_url();?>articles_backend/list_data/"
-  });
+  $('#example').dataTable();
 
 }); 
 

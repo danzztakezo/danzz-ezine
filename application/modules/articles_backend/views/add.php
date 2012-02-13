@@ -12,7 +12,7 @@
   <div id="col3">
     <div id="col3_content" class="clearfix">
       <div id="add_form" class="form">
-      <h2> Tambah Profile </h2>
+      <h2> <?php echo $title_page; ?></h2>
         <div id="contentLeft">
           <form method="post" action="<?=base_url();?>pages_backend/add" id="addForm">
            <span >
@@ -22,7 +22,33 @@
             <label for="intitle"> Title *:</label> <input type="text" name="intitle" id="intitle" class="required"/> 
             </span>
            <span >
-            <label for="incontent"> Deskripsi * :</label> <textarea name="incontent" id="incontent" cols="5" rows="5" class="required"> </textarea> 
+            <label for="incontent"> Deskripsi * :</label> <textarea name="incontent" id="incontent" cols="30" rows="5" class="required"> </textarea> 
+            </span>
+            <span >
+              <label for="intitle"> Author *:</label> 
+              <select name="author" id="author">
+                <option value=''>--pilih Author --</option>
+                <?php 
+                if(count($authors)>0){
+                  foreach($authors as $a){
+                    echo "<option value='".$a->id."'>$a->fullname </option>";   
+                  }
+                }
+                 ?>
+              </select>
+            </span>
+             <span >
+              <label for="category"> category *:</label> 
+              <select name="category" id="category" multiple>
+                <option value=''>--pilih category --</option>
+                <?php 
+                if(count($category)>0){
+                  foreach($category as $a){
+                    echo "<option value='".$a->id."'>$a->name </option>";   
+                  }
+                }
+                 ?>
+              </select>
             </span>
            <input type="submit" id="btnsimpan" value="Simpan"/> 
            <span id="saving_proses"></span>
