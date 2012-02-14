@@ -13,7 +13,7 @@
         </ul> -->
       </li>
       <li><a href="<?php echo $b . "rupbasan/bukutamu"; ?>">Buku Tamu</a></li>
-      <li><a href="<?php echo $b . "rupbasan/agenda"; ?>">Agenda</a></li>
+      <li><a href="<?php echo $b . "agendas_backend"; ?>">Agenda</a></li>
       <li><a href="<?php echo $b . "news_backend"; ?>">Berita</a></li>
       <li><a href="<?php echo $b . "gallery_backend"; ?>">Gallery</a></li>
       <li><a href="<?php echo $b . "articles_backend" ?>">Artikel</a></li>

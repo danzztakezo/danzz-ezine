@@ -34,6 +34,7 @@
 <script type="text/javascript" language="javascript" src="<?php echo $bjs;?>DataTables-1.9.0/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript" src="<?php echo $bjs;?>jquery-ui-multiselect/src/jquery.multiselect.js"></script>
 <script type="text/javascript" src="<?php echo $bjs;?>jquery-ui-multiselect/assets/prettify.js"></script>
+<script type="text/javascript" src="<?php echo $bjs;?>jquery-ui-timepicker-addon.js"></script>
 
 
 <script type="text/javascript" charset="utf-8">
