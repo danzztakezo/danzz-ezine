@@ -4,8 +4,6 @@ class agendas_backend extends Backend_Controller {
 
   public function __construct(){
     $this->load->model('agendas_model_backend','a');
-    
-    //$this->load->library('Datatables');
   }
 
   public function add(){
@@ -32,22 +30,20 @@ class agendas_backend extends Backend_Controller {
   }
 
   public function edit($id){
-    // $request = $this->input->post();
-    // if(empty($request)){
-    //   $data['title_page']="Edit Artikel";
-    //   $data['authors']=$this->au->find();
-    //   $data['category']=$this->c->find();
-    //   $data['row']=$this->a->find(array('id'=>$id),0,1,'id asc');
-    //   $data['form_action'] = base_url()."articles_backend/edit/".$id;
-    //   $this->load->view('edit',$data);
-    // }else{
-    //   $response=$this->a->update_article($id,$request);
-    //   if($response){
-    //     echo 0;
-    //   }else{
-    //     echo 1;
-    //   }
-    // }
+    $request = $this->input->post();
+    if(empty($request)){
+      $data['title_page']="Edit Agenda";
+      $data['row']=$this->a->find(array('id'=>$id),0,1,'id asc');
+      $data['form_action'] = base_url()."agendas_backend/edit/".$id;
+      $this->load->view('edit',$data);
+    }else{
+      $response=$this->a->update_attribute(array('id'=>$id),$request);
+      if($response){
+        echo 0;
+      }else{
+        echo 1;
+      }
+    }
   }
 
   public function del(){

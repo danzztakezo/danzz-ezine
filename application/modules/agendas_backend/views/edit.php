@@ -15,42 +15,21 @@
       <h2> <?php echo $title_page; ?></h2>
         <div id="contentLeft">
           <form method="post" action="<?=$form_action;?>" id="editForm">
-           
            <span >
-            <label for="intitle"> Title *:</label> <input type="text" name="intitle" id="intitle" class="required" value='<?=$row[0]->intitle?>'/> 
+            <label for="intitle"> Nama *:</label> <input type="text" name="name" id="name" class="required" value="<?php echo $row[0]->name; ?>"/> 
             </span>
            <span >
-            <label for="incontent"> Deskripsi * :</label> <textarea name="incontent" id="incontent" cols="30" rows="5" class="required"> <?=$row[0]->incontent?> </textarea> 
+            <label for="intitle"> Title *:</label> <input type="text" name="intitle" id="intitle" class="required" value="<?php echo $row[0]->name; ?>"/> 
+            </span>
+           <span >
+            <label for="incontent"> Deskripsi * :</label> <textarea name="indescription" id="indescription" cols="30" rows="5" class="required"><?php echo $row[0]->indescription; ?> </textarea> 
             </span>
             <span >
-              <label for="intitle"> Author *:</label> 
-              <select name="author" id="author">
-                <option value=''>--pilih Author --</option>
-                <?php 
-                if(count($authors)>0){
-                  foreach($authors as $a){
-                    echo "<option value='".$a->id."'>$a->fullname </option>";   
-                  }
-                }
-                 ?>
-              </select>
-            </span>
-             <span >
-              <label for="category"> category *:</label> 
-              <select name="category[]" id="category[]" multiple>
-                <option value=''>--pilih category --</option>
-                <?php 
-                if(count($category)>0){
-                  foreach($category as $a){
-                    echo "<option value='".$a->id."'>$a->name </option>";   
-                  }
-                }
-                 ?>
-              </select>
+              <label for="agendastime"> Tanggal / Waktu *:</label> <input type="text" name="agendastime" id="agendastime" class="required" value="<?php echo $row[0]->agendastime; ?>"/> 
             </span>
             <span >
-            <label for="name"> </label> <input type="hidden" name="type" id="type" class="required" value="article"/> 
-           </span>
+              <label for="venue"> Tempat *:</label> <input type="text" name="venue" id="venue" class="required" value="<?php echo $row[0]->venue; ?>"/> 
+            </span>
            <input type="submit" id="btnsimpan" value="Simpan"/> 
            <span id="saving_proses"></span>
           </form>
